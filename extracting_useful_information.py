@@ -1,6 +1,7 @@
 import numpy as np
 import ast
 
+#Utility functions to extract data from the original movies metadata database
 def get_day(x):
   day_order = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
   try:
@@ -8,7 +9,7 @@ def get_day(x):
     return day_order[answer]
   except:
     return np.nan
-	
+
 def get_values(data_str):
     if isinstance(data_str, float):
         pass
@@ -21,7 +22,7 @@ def get_values(data_str):
             return values
         else:
             return None
-			
+
 def get_director(data_str):
     if isinstance(data_str, float):
         pass

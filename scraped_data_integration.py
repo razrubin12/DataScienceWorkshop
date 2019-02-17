@@ -1,5 +1,7 @@
 import re
 
+# Utility functions used to extract data from the scraped database format
+
 def get_values(data_str):
     if isinstance(data_str, float):
         pass

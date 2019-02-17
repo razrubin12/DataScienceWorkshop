@@ -4,7 +4,7 @@ from matplotlib import cm as cm
 import numpy as np
 import seaborn as sns
 
-
+# Given a data frame and a column creates a histogram of the column
 def counting_values(df, column):
     value_count = {}
     for row in df[column].dropna():
@@ -18,13 +18,13 @@ def counting_values(df, column):
             pass
     return value_count
 
-
+# Receives labels for a plot and adds them to plt
 def set_graph_labels(title, xlabel, ylabel):
     plt.title(title)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
 
-
+# Recieves a dataframe and creates a correlation matrix for it
 def correlation_matrix(df):
     fig = plt.figure()
     ax1 = fig.add_subplot(111)
@@ -42,7 +42,7 @@ def correlation_matrix(df):
     fig.colorbar(cax)
     plt.show()
 
-
+# Creates a box plot from the dataframe and x, y values
 def high_order_categorical_boxplot(df, x, y, selected=[], ylim=6e8):
     plt.figure(figsize=(12, 6))
     ax = sns.boxplot(data=df[x].apply(lambda x: pd.Series(x))
@@ -53,7 +53,7 @@ def high_order_categorical_boxplot(df, x, y, selected=[], ylim=6e8):
                      x=x, y=y, order=selected)
     ax.set_ylim([0, ylim])
 
-
+# Creates a count plot from the dataframe and x, y values
 def high_order_categorical_countplot(df, col, selected=[]):
     if len(selected) == 0:
         selected = df[col].apply(pd.Series).stack().unique()
